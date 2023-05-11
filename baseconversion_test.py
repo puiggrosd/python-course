@@ -11,6 +11,14 @@ class BaseConversorTest(unittest.TestCase):
         self.assertEqual(conversor.convert(0), "0")
         self.assertEqual(conversor.convert(1), "1")
         self.assertEqual(conversor.convert(5), "101")
+        self.assertEqual(conversor.convert(10), "1010")
+        self.assertEqual(conversor.convert(42), "101010")
+        with self.assertRaises(TypeError):
+            conversor.convert(-1)
+
+        self.assertEqual(conversor.convert(489449845), "11101001011000110100101110101")
+        self.assertEqual(conversor.convert(123456789012345678901234567890123456789012345678901234567890), 
+                         '10011101010101111010100000100111001001011110000011110011000100001011100111111100001111010010000110111100011000011011110110100100111001000110011001111111100011001011011001110001111110000101011010010')
 
     def test_B2ConversorBig(self):
         conversor = B2Conversor()
@@ -65,6 +73,11 @@ class BaseConversorTest(unittest.TestCase):
 
     def test_error(self):
         conversor = BaseConversor(10)
+        with self.assertRaises(TypeError):
+            conversor.convert(-1)
+    
+    def test_error_2(self):
+        conversor = B2Conversor()
         with self.assertRaises(TypeError):
             conversor.convert(-1)
 
