@@ -1,0 +1,43 @@
+Specifications
+-----------------------------------------------------------------------------------------
+Assignment Description: Base Conversion Tool
+-----------------------------------------------------------------------------------------
+
+Conceptual Specifications
+-----------------------------------------------------------------------------------------
+You are tasked with implementing a base conversion tool that can convert a given number to any base between 2 and 36. The tool should consist of a Python program that takes two command-line arguments: the base to convert the number to and the number to be converted. The program should output the converted number as a string.
+
+
+Technical Specifications
+-----------------------------------------------------------------------------------------
+To accomplish this task, you should create a Python (Python 3.9+) class named BaseConversor that has the following attributes and methods:
+
+Attributes:
+base_output (int): The base to convert the numbers to.
+Methods:
+convert(number: int) -> str: Converts a number to the given base and returns it as a string.
+
+You should also create a subclass of BaseConversor named B2Conversor that overrides the convert() method to convert numbers to binary (base 2). The program should then call the convert() method of the BaseConversor or B2Conversor instance to convert the input number to the specified base and output the result.
+
+The convert() method should raise a TypeError if the input number is negative.
+
+To ensure that the program works correctly, you should use the argparse module to parse the command-line arguments. Specifically, the program should take two arguments: -o, which specifies the base to convert the number to, and the number to be converted. The program should also use the logging module to log the conversion process.
+
+Your submission should include the following: 
+* rationale behind the design decisions
+* the developed code
+* unittest file
+* a copy of the terminal execution should be provided as well.
+
+Examples (1):
+> python baseconversion.py -o 2 123
+Converting number:123 to base:2 result: 1111011
+
+Examples (2):
+> python baseconversion.py -o 16 123
+Converting number:123 to base:2 result: 7B
+
+Examples (3):
+> python baseconversion.py -o 16 -1
+TypeError: Cannot convert negative.
+
